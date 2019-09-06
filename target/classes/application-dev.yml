@@ -9,8 +9,10 @@ spring:
 server:
   servlet:
     context-path: /sell
+
 #logging:
   #config:
   #pattern:
     #$console: "%d - %msg%n"
   #path: F:/log/tomcat/
+
