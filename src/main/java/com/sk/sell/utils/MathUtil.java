@@ -1,9 +1,6 @@
 package com.sk.sell.utils;
 
-/**
- * Created by 廖师兄
- * 2017-07-09 16:56
- */
+
 public class MathUtil {
 
     private static final Double MONEY_RANGE = 0.01;

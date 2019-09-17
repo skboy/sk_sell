@@ -10,6 +10,7 @@ import com.sk.sell.service.ProductService;
 import com.sk.sell.utils.ResultVOUtil;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -18,11 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * 买家商品
- * Created by 廖师兄
- * 2017-05-12 14:08
- */
+
 @RestController
 @RequestMapping("/buyer/product")
 public class BuyerProductController {
@@ -34,7 +31,7 @@ public class BuyerProductController {
     private CategoryService categoryService;
 
     @GetMapping("/list")
-//    @Cacheable(cacheNames = "product", key = "#sellerId", condition = "#sellerId.length() > 3", unless = "#result.getCode() != 0")
+    @Cacheable(cacheNames = "product", key = "#sellerId", condition = "#sellerId.length() > 3", unless = "#result.getCode() != 0")
     public ResultVO list(@RequestParam(value = "sellerId", required = false) String sellerId) {
         //1. 查询所有的上架商品
         List<ProductInfo> productInfoList = productService.findUpAll();

@@ -1,18 +1,22 @@
 package com.sk.sell.enums;
 
-import lombok.Data;
 import lombok.Getter;
 
-@Getter
-public enum  ProductStatusEnum {
 
-    UP(0,"上架"),
-    DOWN(1,"下架");
-    private int code;
+@Getter
+public enum ProductStatusEnum implements CodeEnum {
+    UP(0, "在架"),
+    DOWN(1, "下架")
+    ;
+
+    private Integer code;
+
     private String message;
 
-    ProductStatusEnum(int code, String message) {
+    ProductStatusEnum(Integer code, String message) {
         this.code = code;
         this.message = message;
     }
+
+
 }
